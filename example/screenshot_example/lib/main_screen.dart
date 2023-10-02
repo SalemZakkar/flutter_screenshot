@@ -2,8 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:screenshot/screen_shot_service/model.dart';
-import 'package:screenshot/screen_shot_service/screen_shot_service.dart';
+import 'package:screenshot/screenshot.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
