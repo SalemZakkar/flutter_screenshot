@@ -25,7 +25,6 @@ class _MainScreenState extends State<MainScreen> {
         child: ElevatedButton(
             onPressed: () async {
               Directory d = await getApplicationDocumentsDirectory();
-
               ScreenShotModel? screenShotModel =
                   await ScreenShotService.takeScreenshot(
                       path: '${d.path.split('/Documents').first}/Desktop',

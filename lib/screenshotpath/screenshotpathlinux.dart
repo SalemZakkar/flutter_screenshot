@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:path_provider/path_provider.dart';
 
-class ScreenshotPath {
-  static Future<String> getScreenPathLinux(
+class ScreenshotPathLinux {
+  static Future<String> getScreenshotPathLinux(
       {String? path, String? filename, String? fileExtension}) async {
     String baseDir = '${(await getApplicationCacheDirectory()).path}/img';
     path = path ?? baseDir;
