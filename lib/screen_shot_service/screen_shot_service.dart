@@ -16,6 +16,9 @@ class ScreenShotService {
       if (filename.contains('/') || fileExtension.contains('/')) {
         throw Exception('File Name and file extension can\'t have ( / )');
       }
+      if (!Directory(path).existsSync()) {
+        await Directory(path).create(recursive: true);
+      }
       String file = "$path/$filename.$fileExtension";
       await shell.run('''
         ./linux-screenshot -f $file
@@ -23,7 +26,10 @@ class ScreenShotService {
       return ScreenShotModel(path: file, createdAt: DateTime.now());
     }
     if (Platform.isWindows) {
-      String file = "$path\\$filename\\.$fileExtension";
+      if (!Directory(path).existsSync()) {
+        await Directory(path).create(recursive: true);
+      }
+      String file = "$path\\$filename.$fileExtension";
       List bannedChars = ['/', '\\', '"', '<', '>', ':', '|', '?', '*'];
       bool band = false;
       for (var e in bannedChars) {
@@ -32,9 +38,12 @@ class ScreenShotService {
           break;
         }
       }
-      assert(band,
-          'File Name and file extension can\'t have ( /  \\  "  ?  *  | < > : )');
+      if (band) {
+        throw Exception(
+            'File Name and file extension can\'t have ( /  \\  "  ?  *  | < > : )');
+      }
       await shell.run('''
+      dir
           screen-shot.exe $file
           ''');
       return ScreenShotModel(path: file, createdAt: DateTime.now());

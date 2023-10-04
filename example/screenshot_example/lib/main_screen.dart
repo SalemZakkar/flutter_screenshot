@@ -27,8 +27,8 @@ class _MainScreenState extends State<MainScreen> {
                       path: '${Platform.environment['SNAP_REAL_HOME']}/Desktop',
                       filename: 'sjj',
                       fileExtension: 'png');
-              // debugPrint(screenShotModel?.path);
-              // debugPrint(screenShotModel?.createdAt.toString());
+              debugPrint(screenShotModel?.path);
+              debugPrint(screenShotModel?.createdAt.toString());
             },
             child: const Text('Take A screenshot')),
       ),
