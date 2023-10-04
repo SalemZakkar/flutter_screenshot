@@ -1,4 +1,7 @@
 import 'package:screenshot/screenshot.dart';
+
 void main(List<String> arguments) async {
-  await ScreenShotService.takeScreenshot();
+  ScreenShotModel? s = await ScreenShotService.takeScreenshot(
+      path: '', fileExtension: '', filename: '');
+  // Null when Error occurred or when the OS is not supported
 }

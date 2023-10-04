@@ -140,7 +140,7 @@ packages:
     source: hosted
     version: "1.8.3"
   path_provider:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: path_provider
       sha256: a1aa8aaa2542a6bc57e381f132af822420216c80d4781f7aa085ca3229208aaa
@@ -204,7 +204,7 @@ packages:
     source: hosted
     version: "2.1.6"
   process_run:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: process_run
       sha256: ceacfac6d566a36c895d64edc7e429efb2d6b6303b5e28d5c13bc59fe6e8974e

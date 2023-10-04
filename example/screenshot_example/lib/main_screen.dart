@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:screenshot/screenshot.dart';
 
 class MainScreen extends StatefulWidget {
@@ -23,14 +22,13 @@ class _MainScreenState extends State<MainScreen> {
         alignment: Alignment.center,
         child: ElevatedButton(
             onPressed: () async {
-              Directory d = await getApplicationDocumentsDirectory();
               ScreenShotModel? screenShotModel =
                   await ScreenShotService.takeScreenshot(
-                      path: '${d.path.split('/Documents').first}/Desktop',
-                      filename: 'Faya.dev',
-                      fileExtension: '.png');
-              debugPrint(screenShotModel?.path);
-              debugPrint(screenShotModel?.createdAt.toString());
+                      path: '${Platform.environment['SNAP_REAL_HOME']}/Desktop',
+                      filename: 'sjj',
+                      fileExtension: 'png');
+              // debugPrint(screenShotModel?.path);
+              // debugPrint(screenShotModel?.createdAt.toString());
             },
             child: const Text('Take A screenshot')),
       ),

@@ -8,8 +8,6 @@ environment:
 
 # Add regular dependencies here.
 dependencies:
-  process_run: ^0.13.1
-  path_provider: ^2.1.1
   screenshot:
     path: ../../
 
